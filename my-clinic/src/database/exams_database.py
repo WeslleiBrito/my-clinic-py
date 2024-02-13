@@ -5,5 +5,6 @@ class ExamsDatabase:
     
     def findExamsAll_db(self):
         with ConnectionDB() as db:
+            db.create_table_if_not_exists("companies", Exams)
             result = db.session.query(Exams).all()
             return result

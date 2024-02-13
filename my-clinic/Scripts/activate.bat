@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=D:\Usuário\wesll\OneDrive\Documentos\projetos-pessoais\my-clinic-py\my-clinic
+set VIRTUAL_ENV=C:\Users\Wesllei\Documents\my-clinic-py\my-clinic
 
 if not defined PROMPT set PROMPT=$P$G
 

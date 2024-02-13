@@ -5,5 +5,6 @@ class FormsDatabase:
     
     def findFormsAll_db(self):
         with ConnectionDB() as db:
+            db.create_table_if_not_exists("companies", Forms)
             result = db.session.query(Forms).all()
             return result

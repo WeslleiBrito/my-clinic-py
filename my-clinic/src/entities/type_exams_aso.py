@@ -6,8 +6,8 @@ class TypeExamsAso(Base):
     
     __tablename__ = "type_exams_aso"
     
-    id = Column(String, primary_key = True)
-    name = Column(String, nullable = False)
+    id = Column(String(256), primary_key = True)
+    name = Column(String(256), nullable = False)
     created_at = Column(DateTime, default = datetime.now)
     updated_at = Column(DateTime, default = datetime.now)
     
