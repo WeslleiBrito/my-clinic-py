@@ -10,10 +10,10 @@ class Forms(Base):
     __tablename__ = "forms"
     
     id = Column(String(256), primary_key = True)
-    id_type_exam = Column(String(256), ForeignKey(TypeExamsAso.id))
-    id_company = Column(String(256), ForeignKey(Companies.id))
+    id_type_exam = Column(String(256), ForeignKey(TypeExamsAso.id, onupdate='CASCADE', ondelete='CASCADE'))
+    id_company = Column(String(256), ForeignKey(Companies.id, onupdate='CASCADE', ondelete='CASCADE'))
     name_company = Column(String(256), nullable = False)
-    id_patient = Column(String(256), ForeignKey(Patients.id))
+    id_patient = Column(String(256), ForeignKey(Patients.id, onupdate='CASCADE', ondelete='CASCADE'))
     name_patient = Column(String(256), nullable = False)
     rg = Column(String(256), nullable = False, unique = True)
     cnpj = Column(String(256), nullable = False, unique = True)
