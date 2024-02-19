@@ -4,6 +4,7 @@ from src.dtos.company.input_edit_company import EditCompanySchema
 from src.erros.duplicity_error import DuplicityError
 from src.erros.not_found_error import NotFoundError
 from marshmallow import ValidationError
+from datetime import datetime
 import locale
 import uuid
 
@@ -89,7 +90,7 @@ class CompaniesBusiness(CompaniesDatabase):
             
             if not id_exist:
                 raise  NotFoundError("O id informado não existe")
-
+            
             EditCompanySchema().load({
                 "name": name  or id_exist.name,
                 "cnpj": cnpj or id_exist.cnpj
@@ -112,11 +113,13 @@ class CompaniesBusiness(CompaniesDatabase):
             
             name = name or id_exist.name
             cnpj = cnpj or id_exist.cnpj
+            newDate = datetime.now()
             
             self._edit_company(
                 id ,
                 name,
-                "".join(filter(str.isdigit, cnpj))
+                "".join(filter(str.isdigit, cnpj)),
+                    newDate
             )
 
             print("Edição efeuado com sucesso!")
@@ -139,7 +142,7 @@ class CompaniesBusiness(CompaniesDatabase):
 
 if __name__ == "__main__":
     class_business = CompaniesBusiness()
-    class_business.delete_company("0001")
+    class_business.edit_company("0002", "Papa")
     result = class_business.findCompanyAll() 
     
     for r in result:

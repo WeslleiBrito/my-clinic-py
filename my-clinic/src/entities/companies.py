@@ -11,9 +11,11 @@ class Companies(Base):
     created_at = Column(DateTime, default = datetime.now)
     updated_at = Column(DateTime, default = datetime.now)
     
-    def __init__(self, id: str, name: str, cnpj: str):
+    def __init__(self, id: str, name: str, cnpj: str, created_at: datetime, updated_at: datetime):
         self.id = id
         self.name = name
         self.cnpj = cnpj
+        self.created_at = created_at
+        self.updated_at = updated_at
     
     
